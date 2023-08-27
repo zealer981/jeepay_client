@@ -114,7 +114,7 @@
           <a-col :sm="12">
             <a-descriptions>
               <a-descriptions-item label="提现金额">
-                {{ (detailData.amount/100).toFixed(2) }}
+                ￥{{ (detailData.amount/100).toFixed(2) }}
               </a-descriptions-item>
             </a-descriptions>
           </a-col>

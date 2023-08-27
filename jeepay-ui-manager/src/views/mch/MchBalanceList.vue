@@ -31,7 +31,7 @@
           rowKey="refundOrderId"
           :tableRowCrossColor="true"
       >
-        <template slot="balanceSlot" slot-scope="{record}"><b>￥{{ record.balance/100 }}</b></template> <!-- 自定义插槽 -->
+        <template slot="balanceSlot" slot-scope="{record}"><b>￥{{ (record.balance/100).toFixed(2) }}</b></template> <!-- 自定义插槽 -->
       </JeepayTable>
     </a-card>
   </page-header-wrapper>
@@ -40,7 +40,7 @@
 import JeepayTable from '@/components/JeepayTable/JeepayTable'
 import JeepayTextUp from '@/components/JeepayTextUp/JeepayTextUp' // 文字上移组件
 import JeepayTableColumns from '@/components/JeepayTable/JeepayTableColumns'
-import { API_URL_MCH_BALANCE, req, getBalanceTotal } from '@/api/manage'
+import { API_URL_MCH_BALANCE, API_URL_BALANCE_TOTAL, req } from '@/api/manage'
 
 // eslint-disable-next-line no-unused-vars
 const tableColumns = [
@@ -62,7 +62,7 @@ export default {
   },
   mounted () {
     const that = this
-    getBalanceTotal().then(data => {
+    req.list(API_URL_BALANCE_TOTAL).then(data => {
       that.balance = (data / 100).toFixed(2)
     })
   },

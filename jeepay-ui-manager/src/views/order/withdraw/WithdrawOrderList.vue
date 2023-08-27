@@ -42,7 +42,7 @@
           rowKey="orderId"
           :tableRowCrossColor="true"
       >
-        <template slot="amountSlot" slot-scope="{record}"><b>￥{{ record.amount/100 }}</b></template> <!-- 自定义插槽 -->
+        <template slot="amountSlot" slot-scope="{record}"><b>￥{{ (record.amount/100).toFixed(2) }}</b></template> <!-- 自定义插槽 -->
         <template slot="stateSlot" slot-scope="{record}">
           <a-tag
               :key="record.state"
@@ -103,7 +103,7 @@
           <a-col :sm="12">
             <a-descriptions>
               <a-descriptions-item label="提现金额">
-                {{ detailData.amount/100 }}
+                ￥{{ (detailData.amount/100).toFixed(2) }}
               </a-descriptions-item>
             </a-descriptions>
           </a-col>

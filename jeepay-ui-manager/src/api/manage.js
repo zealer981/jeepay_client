@@ -80,6 +80,8 @@ export const API_URL_MCH_APP = '/api/mchApps'
 export const API_URL_PAY_ORDER_LIST = '/api/payOrder'
 /** 提现订单管理 **/
 export const API_URL_WITHDRAW_ORDER_LIST = '/api/withDrawOrder'
+/** 提现订单管理 **/
+export const API_URL_BALANCE_TOTAL = '/api/mchBalance/total'
 /** 余额管理 **/
 export const API_URL_MCH_BALANCE = 'api/mchBalance'
 /** 退款订单管理 **/
@@ -206,13 +208,6 @@ export function reject (orderId) {
   return request.request({
     url: '/api/withDrawOrder/reject/' + orderId,
     method: 'post'
-  })
-}
-
-export function getBalanceTotal () {
-  return request.request({
-    url: '/api/mchBalance/total',
-    method: 'get'
   })
 }
 
